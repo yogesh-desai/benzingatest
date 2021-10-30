@@ -47,7 +47,6 @@ WORKDIR /
 COPY --from=build /app/mta /mta
 COPY --from=build /app/files/* ./files/
 COPY --from=build /app/files/config/ ./files/config/
-COPY --from=build /app/files/data/ ./files/data/
 
 # Expose port
 EXPOSE 9000

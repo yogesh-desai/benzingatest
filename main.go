@@ -16,7 +16,7 @@ func init() {
 
 func main() {
 
-	log.Println("[main] Started listening at :9000 ")
+	log.Println("[INFO][main] Started listening at :9000 ")
 	http.ListenAndServe(":9000", nil)
 
 }
