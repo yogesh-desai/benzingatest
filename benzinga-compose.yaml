@@ -1,0 +1,10 @@
+version: "3"
+services:
+  mta:
+    image: yogesh129desai/benzingatest:1.0
+    environment:
+      - batchSize=20
+      - batchInterval=5
+      - postEndpoint=https://enjk446ttn3h.x.pipedream.net/
+    ports:
+      - 9000:9000

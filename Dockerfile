@@ -24,13 +24,14 @@ RUN xz -d -c /usr/local/upx-3.96-amd64_linux.tar.xz | \
 
 # go mod download
 RUN go mod download
+RUN go get github.com/yogesh-desai/benzingatest/utils
 
-# Build the go app and save binary with name mta
-RUN CGO_ENABLED=0 go build -o mta .
+# Build the go app and save binary with name benzingatest
+RUN CGO_ENABLED=0 go build -o benzingatest .
 
 # strip and compress the binary
-RUN strip --strip-unneeded mta
-RUN upx mta
+RUN strip --strip-unneeded benzingatest
+RUN upx benzingatest
 
 #########################################################
 #
@@ -44,7 +45,7 @@ FROM scratch
 WORKDIR /
 
 # Copy necessary files
-COPY --from=build /app/mta /mta
+COPY --from=build /app/benzingatest /benzingatest
 COPY --from=build /app/files/* ./files/
 COPY --from=build /app/files/config/ ./files/config/
 
@@ -52,4 +53,4 @@ COPY --from=build /app/files/config/ ./files/config/
 EXPOSE 9000
 
 # Set entrypoint
-CMD [ "./mta" ]
+CMD [ "./benzingatest" ]
