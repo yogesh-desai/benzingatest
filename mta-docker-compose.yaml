@@ -4,9 +4,8 @@ services:
     #image: #multistage3
     image: registry.gitlab.com/yogeshbdesai1/mta-hosting-optimizer
     environment:
-     - threshold=2
      - batchSize=2
-     - batchInterval=2
+     - batchInterval=5
      - postEndpoint=https://enjk446ttn3h.x.pipedream.net/
     ports:
      - 9000:9000
